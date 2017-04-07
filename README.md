@@ -12,6 +12,8 @@ After installing the global node packages run `npm install`.
 
 Then simply run `gulp`.
 
+Open `dist/index.html` in a web browser.
+
 ## Links
 
 * https://www.typescriptlang.org/docs/handbook/gulp.html

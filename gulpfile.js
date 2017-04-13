@@ -7,16 +7,17 @@ const uglify = require('gulp-uglify')
 const sourcemaps = require('gulp-sourcemaps')
 const buffer = require('vinyl-buffer')
 const gutil = require('gulp-util')
+const ts = require('gulp-typescript')
 const paths = {
-  pages: ['src/*.html']
+  pages: ['client/*.html']
 }
 
 const watchedBrowserify = watchify(browserify({
   basedir: '.',
   debug: true,
-  entries: ['src/main.ts'],
+  entries: ['client/main.ts'],
   cache: {},
-  packageCahce: {}
+  packageCache: {}
 })
   .plugin(tsify)
   .transform('babelify', {
@@ -27,7 +28,7 @@ const watchedBrowserify = watchify(browserify({
 
 gulp.task('copy-html', function() {
   return gulp.src(paths.pages)
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('public'))
 })
 
 function bundle() {
@@ -40,7 +41,7 @@ function bundle() {
     // .pipe(uglify()) // Uncomment = minified bundle, comment = browser debugger.
     .pipe(sourcemaps.write('./'))
 
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('public'))
 }
 
 gulp.task('default', ['copy-html'], bundle)

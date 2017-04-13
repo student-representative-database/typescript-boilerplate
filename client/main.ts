@@ -6,4 +6,4 @@ function showHello(divName: string, name: string) {
 }
 
 // debugger
-showHello("greeting", "Typescript")
+showHello('greeting', 'Typescript')

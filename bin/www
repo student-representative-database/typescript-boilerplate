@@ -1,2 +1,16 @@
 #!/usr/bin/env node
 "use strict"
+
+import Test from '../server/Test.ts'
+
+const express = require('express')
+const app = express()
+const http = require('http')
+
+const server = http.createServer(app).listen(3000, () => {
+  console.log('Server started on port 3000')
+})
+
+app.get('/', (req, res) => {
+  res.send({"test": "hej"})
+})

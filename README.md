@@ -3,7 +3,7 @@
 ## Dependencies
 
 ```bash
-npm install -g typescript gulp-cli
+npm install -g typescript gulp-cli typings
 ```
 
 ## Instructions
